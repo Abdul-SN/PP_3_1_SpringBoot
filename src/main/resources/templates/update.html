@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update user</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/users/update(id=${user.id})}" th:object="${user}">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <th>Name:</th>
+            <th><input type="text" th:field="*{name}"/></th>
+        </tr>
+        <tr>
+            <th>Surname</th>
+            <th><input type="text" th:field="*{lastName}"/></th>
+        </tr>
+        <tr>
+            <th>Email:</th>
+            <th><input type="text" th:field="*{email}"/></th>
+        </tr>
+        <tr>
+            <th>Phone number:</th>
+            <th><input type="text" th:field="*{phoneNumber}"/></th>
+        </tr>
+        </tbody>
+    </table>
+
+    <style type="text/css">
+        .table {
+            width: 100%;
+            margin-bottom: 20px;
+            border: 15px solid #F2F8F8;
+            border-top: 5px solid #F2F8F8;
+            border-collapse: collapse;
+        }
+
+        .table th {
+            font-weight: bold;
+            padding: 5px;
+            background: #F2F8F8;
+            border: none;
+            border-bottom: 5px solid #F2F8F8;
+        }
+
+        .table td {
+            padding: 5px;
+            border: none;
+            border-bottom: 5px solid #F2F8F8;
+        }
+    </style>
+
+    <br/>
+    <input type="submit" value="Update User"/>
+</form>
+<hr/>
+<br/>
+
+<form th:method="POST" th:action="@{/users/delete(id=${user.id})}">
+    <input type="submit" value="Delete this user"/>
+</form>
+
+</body>
+</html>
